@@ -11,9 +11,9 @@ setuptools.setup(
     description="A branch-and-bound framework for MAPF solvers that use mapfmclient",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pypa/sampleproject",
+    url="https://github.com/tbvanderwoude/mapf-branch-and-bound/",
     project_urls={
-        "Bug Tracker": "https://github.com/pypa/sampleproject/issues",
+        "Bug Tracker": "https://github.com/tbvanderwoude/mapf-branch-and-bound/issues",
     },
     classifiers=[
         "Programming Language :: Python :: 3",
