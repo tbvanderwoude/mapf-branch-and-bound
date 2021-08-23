@@ -2,6 +2,17 @@ from copy import copy, deepcopy
 
 
 class AssignmentProblem(object):
+    __slots__ = [
+        "team_ids",
+        "num_teams",
+        "num_workers",
+        "num_tasks",
+        "team_tasks",
+        "assigned_workers",
+        "assignments",
+        "cost",
+    ]
+
     def __init__(
         self,
         team_ids,

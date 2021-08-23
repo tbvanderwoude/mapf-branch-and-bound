@@ -13,7 +13,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/tbvanderwoude/mapf-branch-and-bound/",
     project_urls={
-        "Bug Tracker": "https://github.com/tbvanderwoude/mapf-branch-and-bound/issues",
+        "Bug Tracker": "https://github.com/tbvanderwoude/mapf-branch-and-bozund/issues",
     },
     classifiers=[
         "Programming Language :: Python :: 3",

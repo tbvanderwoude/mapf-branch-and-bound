@@ -4,11 +4,12 @@ from .assignment_problem import AssignmentProblem
 
 
 class BBNode(object):
+    __slots__ = ["parent", "problem", "lower_bound"]
+
     def __init__(self, parent, problem: AssignmentProblem, lower_bound: int):
         self.parent: Optional[BBNode] = parent
         self.problem: AssignmentProblem = problem
         self.lower_bound: int = lower_bound
-        self.children = None
 
     def __hash__(self):
         return hash(self.problem)
