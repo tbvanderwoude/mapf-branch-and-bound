@@ -148,8 +148,13 @@ def compute_sol_cost(sol: Solution) -> int:
     sic = 0
     for path in sol.paths:
         xs = path.route
-        last = xs[-1]
-        while xs[-1] == last:
-            xs = xs[:-1]
-        sic += len(xs)
+        if len(xs) > 0:
+            last = xs[-1]
+            while xs[-1] == last:
+                if len(xs) > 1:
+                    xs = xs[:-1]
+                else:
+                    xs = []
+                    break
+            sic += len(xs)
     return sic
