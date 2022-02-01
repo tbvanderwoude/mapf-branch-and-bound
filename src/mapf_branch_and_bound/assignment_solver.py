@@ -2,7 +2,7 @@ from copy import copy, deepcopy
 from typing import Optional
 from ortools.linear_solver import pywraplp
 
-from .assignment_problem import AssignmentProblem
+from mapf_branch_and_bound.assignment_problem import AssignmentProblem
 from ortools.graph import pywrapgraph
 from ortools.linear_solver import pywraplp
 
@@ -18,13 +18,6 @@ def solve_problem(costs, problem: AssignmentProblem) -> int:
     solve_status = assignment.Solve()
     if solve_status == pywraplp.Solver.OPTIMAL:
         total_cost = assignment.OptimalCost()
-        # print('Total cost = ', assignment.OptimalCost())
-        # print()
-        # for i in range(0, assignment.NumNodes()):
-        #     print('Worker %d assigned to task %d.  Cost = %d' % (
-        #         i,
-        #         assignment.RightMate(i),
-        #         assignment.AssignmentCost(i)))
         return total_cost
     elif solve_status == assignment.INFEASIBLE:
         print("No assignment is possible.")
@@ -35,12 +28,12 @@ def solve_problem(costs, problem: AssignmentProblem) -> int:
 if __name__ == "__main__":
     costs = [
         [90, 80, 75, 70],
-        [35, 85, 55, 65],
-        [125, 95, 90, 95],
-        [45, 110, 95, 115],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
     ]
-    team_id = [0, 0, 1, 2]
-    team_tasks = [{0, 1}, {2}, {3}]
+    team_id = [0, 1, 1, 1]
+    team_tasks = [{0, 1, 2, 3}, {2}, {3}]
     problem = AssignmentProblem(team_id, team_tasks, 3, 4, 4)
     solve_problem(costs, problem)
     for subproblem in problem.generate_subproblems():
